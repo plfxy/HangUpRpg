@@ -1,0 +1,9 @@
+#	Card			
+#	int	int	int	
+#	Id	Value	Num	
+#	卡牌ID	卡牌价值	数量	
+	1	1	8	
+	2	2	4	
+	3	3	2	
+	4	4	1	
+	999	0	15	

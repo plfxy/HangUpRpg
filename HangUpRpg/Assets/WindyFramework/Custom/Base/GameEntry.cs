@@ -13,6 +13,7 @@ public class GameEntry : MonoBehaviour
         FrameworkEntry.RegisterComponent(new WindyFramework.Data.DataManager());
         FrameworkEntry.RegisterComponent(new WindyFramework.Event.EventManager());
         FrameworkEntry.RegisterComponent(new WindyFramework.Player.PlayerManager());
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Main",UnityEngine.SceneManagement.LoadSceneMode.Additive);
     }
 
     private void TestDataManager()

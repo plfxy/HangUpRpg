@@ -1,0 +1,11 @@
+#	PropertyExpDrop			
+#	int	int	int	
+#	Id	LevelDiff	Exp	
+#	Id	越级数（每十级）	经验掉落	
+	1	0	20	
+	2	1	30	
+	3	2	40	
+	4	3	50	
+	5	4	60	
+	6	5	70	
+	7	6	80	

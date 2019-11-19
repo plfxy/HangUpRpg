@@ -5,17 +5,17 @@ using UnityEngine;
 
 namespace WindyFramework.Data
 {
-    public class CardDataRow : ADataRow
+    public class PropertyLevelDataRow : ADataRow
     {
-        public int Rarity { get; private set; }
-        public int Num { get; private set; }
+        public float Property { get; private set; }
+        public int Exp { get; private set; }
 
         public override void ParseData(DataHolder dataHolder)
         {
             dataHolder.ResetIndex();
             Id = int.Parse(dataHolder.GetData());
-            Rarity = int.Parse(dataHolder.GetData());
-            Num = int.Parse(dataHolder.GetData());
+            Property = float.Parse(dataHolder.GetData());
+            Exp = int.Parse(dataHolder.GetData());
         }
     }
 }

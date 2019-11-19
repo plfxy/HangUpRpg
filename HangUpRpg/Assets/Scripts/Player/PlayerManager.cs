@@ -43,8 +43,11 @@ namespace WindyFramework.Player
             }
             set
             {
-                _Strength = value;
-                IEventManager.Fire(EventsId.PLAYER_STRENGTH_CHANGE, this, EventArgs.Empty);
+                if (_Strength != value)
+                {
+                    _Strength = value;
+                    IEventManager.Fire(EventsId.PLAYER_STRENGTH_CHANGE, this, EventArgs.Empty);
+                }
             }
         }
         private int _Strength;

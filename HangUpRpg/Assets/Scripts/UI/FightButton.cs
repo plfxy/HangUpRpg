@@ -13,7 +13,7 @@ public class FightButton : MonoBehaviour
 
     public void OnClick()
     {
-        playerManager.Strength += 100;
+        playerManager.Lv += 100;
 
     }
 }

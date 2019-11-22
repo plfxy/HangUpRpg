@@ -8,6 +8,7 @@ namespace WindyFramework.Data
     public class DataManager : FrameworkModule
     {
         private static string _dataFolderPath = null;
+        private List<IDataSheet> _dataSheetList=new List<IDataSheet>();
 
         public DataManager()
         {
@@ -17,7 +18,7 @@ namespace WindyFramework.Data
             _dataFolderPath = Path.Combine(_dataFolderPath, "DataTable");
         }
 
-        public ADataSheet<T> LoadDataSheet<T>(string dataSheetName) where T : ADataRow, new()
+        private ADataSheet<T> LoadDataSheet<T>(string dataSheetName) where T : ADataRow, new()
         {
             string dataTablePath;
             ADataSheet<T> aDataSheet;
@@ -29,9 +30,37 @@ namespace WindyFramework.Data
                 byte[] heByte = new byte[fsLen];
                 fs.Read(heByte, 0, heByte.Length);
                 string strData = System.Text.Encoding.UTF8.GetString(heByte);
-                aDataSheet = new ADataSheet<T>(strData);
+                aDataSheet = new ADataSheet<T>(dataSheetName, strData);
             }
             return aDataSheet;
+        }
+
+        public bool IsSheetLoaded(string dataSheetName)
+        {
+            foreach (IDataSheet dataSheet in _dataSheetList)
+            {
+                if (dataSheet.DataSheetName == dataSheetName)
+                    return true;
+            }
+            return false;
+        }
+
+        public ADataSheet<T> GetDataSheet<T>(string dataSheetName) where T : ADataRow,new()
+        {
+            if (IsSheetLoaded(dataSheetName))
+            {
+                foreach (IDataSheet dataSheet in _dataSheetList)
+                {
+                    if (dataSheet.DataSheetName == dataSheetName)
+                        return dataSheet as ADataSheet<T>;
+                }
+            }
+            else
+            {
+                _dataSheetList.Add(LoadDataSheet<T>(dataSheetName));
+                return _dataSheetList[_dataSheetList.Count] as ADataSheet<T>;
+            }
+            return null;
         }
     }
 }

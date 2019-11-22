@@ -6,13 +6,13 @@ namespace WindyFramework.Player
 {
     public class PlayerAttribute
     {
-        public int Strength
+        public virtual int Strength
         {
             get
             {
                 return _Strength;
             }
-            private set
+            protected set
             {
                 if (_Strength != value)
                 {
@@ -22,5 +22,22 @@ namespace WindyFramework.Player
         }
         private int _Strength;
 
+        public int StrengthBase
+        {
+            get
+            {
+                return _StrengthBase;
+            }
+            set {
+                _StrengthBase = value;
+                Strength = StrengthBase;
+            }
+        }
+        private int _StrengthBase;
+
+        public PlayerAttribute()
+        {
+            Strength = 0;
+        }
     }
 }

@@ -6,7 +6,8 @@ namespace WindyFramework.Player
 {
     interface IPlayerAttributeDecorater
     {
-        PlayerAttribute DecoratePlayerAttribute(PlayerAttribute playerAttribute);
+        void LoadDecorater(PlayerAttribute playerAttribute);
+        void UnloadDecorater(PlayerAttribute plyerAttribute);
     }
 }
 

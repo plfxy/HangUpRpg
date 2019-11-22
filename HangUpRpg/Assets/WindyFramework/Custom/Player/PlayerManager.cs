@@ -35,23 +35,6 @@ namespace WindyFramework.Player
         }
         private string _NickName;
 
-        public int Strength
-        {
-            get
-            {
-                return _Strength;
-            }
-            set
-            {
-                if (_Strength != value)
-                {
-                    _Strength = value;
-                    IEventManager.Fire(EventsId.PLAYER_STRENGTH_CHANGE, this, EventArgs.Empty);
-                }
-            }
-        }
-        private int _Strength;
-
         public int Lv {
             get
             {
@@ -65,11 +48,14 @@ namespace WindyFramework.Player
         }
         private int _Lv;
 
+        public CurPlayerAttribute curPlayerAttribute;
+        public PlayerEquipManger playerEquipManger;
+
         public  PlayerManager()
         {
             NickName = "Windy";
             Lv = 4;
-            Strength = 1265;
+            curPlayerAttribute = new CurPlayerAttribute();
         }
     }
 }

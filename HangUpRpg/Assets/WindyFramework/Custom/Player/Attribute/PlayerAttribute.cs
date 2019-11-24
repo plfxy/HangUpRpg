@@ -30,14 +30,35 @@ namespace WindyFramework.Player
             }
             set {
                 _StrengthBase = value;
-                Strength = StrengthBase;
+                StrengthRefresh();
             }
         }
         private int _StrengthBase;
 
+        public float StrengthModifier
+        {
+            get
+            {
+                return _strengthModifier;
+            }
+            set
+            {
+                _strengthModifier = value;
+                StrengthRefresh();
+            }
+        }
+        private float _strengthModifier;
+
         public PlayerAttribute()
         {
-            Strength = 0;
+            StrengthBase = 0;
+            StrengthModifier = 0;
         }
+
+        private void StrengthRefresh()
+        {
+            Strength = (int) (StrengthBase * StrengthModifier);
+        }
+
     }
 }

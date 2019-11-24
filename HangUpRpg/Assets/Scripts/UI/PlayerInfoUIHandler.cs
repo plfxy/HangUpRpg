@@ -36,14 +36,25 @@ public class PlayerInfoUIHandler : MonoBehaviour
     }
     private CurPlayerAttribute _curPlayerAttribute;
 
+    private PlayerLevelManager playerLevelManager
+    {
+        get
+        {
+            if (_playerLevelManager == null)
+                _playerLevelManager = playerManager.playerLevelManager;
+            return _playerLevelManager;
+        }
+    }
+    private PlayerLevelManager _playerLevelManager;
+
     void Start()
     {
         _nickName = this.gameObject.transform.Find("NickName").GetComponent<TMPro.TextMeshPro>();
         _level = this.gameObject.transform.Find("LV").Find("LvValue").GetComponent<TMPro.TextMeshPro>();
         _strength = this.gameObject.transform.Find("Strength").Find("StrengthValue").GetComponent<TMPro.TextMeshPro>();
-        _level.text = playerManager.Lv.ToString();
-        _nickName.text = playerManager.NickName;
-        _strength.text = curPlayerAttribute.Strength.ToString();
+        UpdatePlayerLevel();
+        UpdateNickName();
+        UpdateStrength();
 
         EventManager eventManager = WindyFramework.FrameworkEntry.GetComponent<EventManager>();
         eventManager.Subscribe(EventsId.PLAYER_LEVEL_CHANGE,UpdatePlayerLevel);
@@ -51,18 +62,33 @@ public class PlayerInfoUIHandler : MonoBehaviour
         eventManager.Subscribe(EventsId.PLAYER_STRENGTH_CHANGE, UpdateStrength);
     }
 
-    private void UpdatePlayerLevel(object sender, System.EventArgs eventArgs)
+    private void UpdatePlayerLevel()
     {
-        _level.text = playerManager.Lv.ToString();
+        _level.text = playerLevelManager.Lv.ToString();
     }
 
-    private void UpdateNickName(object sender, System.EventArgs eventArgs)
+    private void UpdatePlayerLevel(object sender, System.EventArgs eventArgs)
+    {
+        UpdatePlayerLevel();
+    }
+
+    private void UpdateNickName()
     {
         _nickName.text = playerManager.NickName;
     }
 
-    private void UpdateStrength(object sender, System.EventArgs eventArgs)
+    private void UpdateNickName(object sender, System.EventArgs eventArgs)
+    {
+        UpdateNickName();
+    }
+
+    private void UpdateStrength()
     {
         _strength.text = curPlayerAttribute.Strength.ToString();
+    }
+
+    private void UpdateStrength(object sender, System.EventArgs eventArgs)
+    {
+        UpdateStrength();
     }
 }

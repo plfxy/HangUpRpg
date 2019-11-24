@@ -5,15 +5,18 @@ using WindyFramework.Player;
 
 public class FightButton : MonoBehaviour
 {
-    PlayerManager playerManager;
+    PlayerLevelManager playerLevelManager;
+
     void Start()
     {
+        PlayerManager playerManager;
         playerManager = WindyFramework.FrameworkEntry.GetComponent<PlayerManager>();
+        playerLevelManager = playerManager.playerLevelManager;
     }
 
     public void OnClick()
     {
-        playerManager.Lv += 100;
+        playerLevelManager.AddExp(100);
 
     }
 }

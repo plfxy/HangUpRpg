@@ -8,6 +8,7 @@ namespace WindyFramework.Event
     {
         PLAYER_NAME_CHANGE,
         PLAYER_STRENGTH_CHANGE,
-        PLAYER_LEVEL_CHANGE
+        PLAYER_LEVEL_CHANGE,
+        PLAYER_EQUIP_CHANGE,
     }
 }

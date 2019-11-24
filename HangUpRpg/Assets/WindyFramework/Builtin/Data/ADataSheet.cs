@@ -7,7 +7,6 @@ namespace WindyFramework.Data
     public class ADataSheet<T>:IDataSheet where T : ADataRow, new()
     {
         private List<T> dataList;
-        T t = new T();
 
         public string DataSheetName
         {
@@ -26,6 +25,8 @@ namespace WindyFramework.Data
             string[] arrData = strData.Split(new char[] { '\n' });
             for (int i = 4; i < arrData.Length; i++)
             {
+                T t;
+                t = new T();
                 t.ParseData(new DataHolder(arrData[i]));
                 dataList.Add(t);
             }
@@ -33,7 +34,12 @@ namespace WindyFramework.Data
 
         public T GetDataRowById(int id)
         {
-            return dataList[0];
+            foreach (T dataRow in dataList)
+            {
+                if (dataRow.Id == id) return dataRow;
+            }
+            Debug.LogError("Can't get id=" + id + "in" + DataSheetName);
+            return null;
         }
     }
 }

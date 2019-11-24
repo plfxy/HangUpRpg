@@ -58,7 +58,7 @@ namespace WindyFramework.Data
             else
             {
                 _dataSheetList.Add(LoadDataSheet<T>(dataSheetName));
-                return _dataSheetList[_dataSheetList.Count] as ADataSheet<T>;
+                return _dataSheetList[_dataSheetList.Count-1] as ADataSheet<T>;
             }
             return null;
         }

@@ -35,27 +35,16 @@ namespace WindyFramework.Player
         }
         private string _NickName;
 
-        public int Lv {
-            get
-            {
-                return _Lv;
-            }
-            set
-            {
-                _Lv = value;
-                IEventManager.Fire(EventsId.PLAYER_LEVEL_CHANGE, this, EventArgs.Empty);
-            }
-        }
-        private int _Lv;
-
         public CurPlayerAttribute curPlayerAttribute;
-        public PlayerEquipManger playerEquipManger;
+        public PlayerEquipManager playerEquipManger;
+        public PlayerLevelManager playerLevelManager;
 
         public  PlayerManager()
         {
             NickName = "Windy";
-            Lv = 4;
             curPlayerAttribute = new CurPlayerAttribute();
+            playerEquipManger = new PlayerEquipManager(curPlayerAttribute);
+            playerLevelManager = new PlayerLevelManager(curPlayerAttribute);
         }
     }
 }

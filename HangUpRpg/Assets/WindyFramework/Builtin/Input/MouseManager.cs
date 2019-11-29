@@ -35,7 +35,7 @@ namespace WindyFramework.Input
             {
                 if (leftClickObject == mousePointedObject.transform)
                 {
-                    eventManager.Fire(EventsId)
+                    eventManager.Fire(EventsId.MOUSE_LEFT_BUTTON_CLICKED, this, new LeftClickEventArgs(leftClickObject));
                 }
             }
         }

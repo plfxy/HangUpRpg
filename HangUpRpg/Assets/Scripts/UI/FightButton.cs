@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using WindyFramework.Player;
+using WindyFramework.Event;
+using System;
 
 public class FightButton : MonoBehaviour
 {
@@ -12,10 +14,16 @@ public class FightButton : MonoBehaviour
         PlayerManager playerManager;
         playerManager = WindyFramework.FrameworkEntry.GetComponent<PlayerManager>();
         playerLevelManager = playerManager.playerLevelManager;
+
     }
 
-    public void OnClick()
+    public void OnClick(object sender, EventArgs eventArgs)
     {
-        playerLevelManager.AddExp(100);
+        LeftClickEventArgs leftClickEventArgs;
+        leftClickEventArgs = (LeftClickEventArgs)eventArgs;
+        if (this.transform == leftClickEventArgs.ClickedObject)
+        {
+            playerLevelManager.AddExp(100);
+        }
     }
 }

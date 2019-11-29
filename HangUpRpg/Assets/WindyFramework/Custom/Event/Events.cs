@@ -10,5 +10,6 @@ namespace WindyFramework.Event
         PLAYER_STRENGTH_CHANGE,
         PLAYER_LEVEL_CHANGE,
         PLAYER_EQUIP_CHANGE,
+        MOUSE_LEFT_BUTTON_CLICKED,
     }
 }

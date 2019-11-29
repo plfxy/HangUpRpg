@@ -17,6 +17,5 @@ public class FightButton : MonoBehaviour
     public void OnClick()
     {
         playerLevelManager.AddExp(100);
-
     }
 }

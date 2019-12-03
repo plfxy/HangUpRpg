@@ -61,8 +61,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\UI\FightButton.cs" />
-    <Compile Include="Assets\Scripts\UI\PlayerInfoUIHandler.cs" />
+    <Compile Include="Assets\Scripts\Main\FightButton.cs" />
+    <Compile Include="Assets\Scripts\Main\MainSceneManager.cs" />
+    <Compile Include="Assets\Scripts\Main\MonsterInfoHandler.cs" />
+    <Compile Include="Assets\Scripts\Main\PlayerInfoUIHandler.cs" />
+    <Compile Include="Assets\Scripts\Main\StageChangeController.cs" />
     <Compile Include="Assets\WindyFramework\Builtin\Base\FrameworkEntry.cs" />
     <Compile Include="Assets\WindyFramework\Builtin\Base\FrameworkModule.cs" />
     <Compile Include="Assets\WindyFramework\Builtin\Data\ADataRow.cs" />

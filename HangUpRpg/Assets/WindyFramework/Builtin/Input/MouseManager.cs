@@ -42,8 +42,14 @@ namespace WindyFramework.Input
 
         private RaycastHit GetMousePointedObject()
         {
-            Ray ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
             RaycastHit hitInfo;
+
+            if (Camera.main == null)
+            {
+                hitInfo = new RaycastHit();
+                return hitInfo;
+            }
+            Ray ray = Camera.main.ScreenPointToRay(UnityEngine.Input.mousePosition);
             Physics.Raycast(ray, out hitInfo);
             return hitInfo;
         }

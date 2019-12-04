@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MainSceneManager : MonoBehaviour
 {
-    private MonsterInfoHandler monsterInfoHandler;
+    public MonsterInfoHandler monsterInfoHandler;
 
     // Start is called before the first frame update
     void Start()

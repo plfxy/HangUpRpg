@@ -94,6 +94,7 @@
     <Compile Include="Assets\WindyFramework\Custom\Player\PlayerEquipManger.cs" />
     <Compile Include="Assets\WindyFramework\Custom\Player\PlayerLevelManager.cs" />
     <Compile Include="Assets\WindyFramework\Custom\Player\PlayerManager.cs" />
+    <Compile Include="Assets\WindyFramework\Custom\Player\PlayerStageInfoManager.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />

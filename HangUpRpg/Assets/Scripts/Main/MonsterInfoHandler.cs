@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using WindyFramework.Data;
+using WindyFramework.Player;
 
 public class MonsterInfoHandler
 {
@@ -13,13 +14,16 @@ public class MonsterInfoHandler
         }
         set
         {
-            _curMonsterLevel = value;
-            UpdateStageInfo();
+            if (value>0 && value <= playerStageInfoManager.UnlockStage)
+            {
+                _curMonsterLevel = value;
+                UpdateStageInfo();
+            }
         }
     }
     private int _curMonsterLevel;
 
-    private DataManager dataManager;
+    private PlayerStageInfoManager playerStageInfoManager;
     private ADataSheet<StageDataRow> stageDataSheet;
     private TMPro.TextMeshPro stageInfo;
     private TMPro.TextMeshPro monsterStrength;
@@ -27,10 +31,14 @@ public class MonsterInfoHandler
     public void Start()
     {
         Camera mainCamera = Camera.main;
-        stageInfo = mainCamera.transform.Find("MainScene").Find("StageInfo").GetComponent<TMPro.TextMeshPro>();
-        monsterStrength = mainCamera.transform.Find("MainScene").Find("Monster").Find("MonsterStrength").Find("StrengthValue").GetComponent<TMPro.TextMeshPro>();
+        DataManager dataManager;
         dataManager = WindyFramework.FrameworkEntry.GetComponent<DataManager>();
         stageDataSheet = dataManager.GetDataSheet<StageDataRow>("Stage");
+        PlayerManager playerManager;
+        playerManager = WindyFramework.FrameworkEntry.GetComponent<PlayerManager>();
+        playerStageInfoManager = playerManager.playerStageInfoManager;
+        stageInfo = mainCamera.transform.Find("MainScene").Find("StageInfo").GetComponent<TMPro.TextMeshPro>();
+        monsterStrength = mainCamera.transform.Find("MainScene").Find("Monster").Find("MonsterStrength").Find("StrengthValue").GetComponent<TMPro.TextMeshPro>();
         CurMonsterLevel = 10;
     }
 

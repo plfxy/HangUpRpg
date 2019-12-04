@@ -38,6 +38,7 @@ namespace WindyFramework.Player
         public CurPlayerAttribute curPlayerAttribute;
         public PlayerEquipManager playerEquipManger;
         public PlayerLevelManager playerLevelManager;
+        public PlayerStageInfoManager playerStageInfoManager;
 
         public  PlayerManager()
         {
@@ -45,7 +46,7 @@ namespace WindyFramework.Player
             curPlayerAttribute = new CurPlayerAttribute();
             playerEquipManger = new PlayerEquipManager(curPlayerAttribute);
             playerLevelManager = new PlayerLevelManager(curPlayerAttribute);
+            playerStageInfoManager = new PlayerStageInfoManager();
         }
     }
 }
-

@@ -41,6 +41,11 @@ namespace WindyFramework.Data
             Debug.LogError("Can't get id=" + id + "in" + DataSheetName);
             return null;
         }
+
+        public T GetLastDataRow()
+        {
+            return dataList[dataList.Count-1];
+        }
     }
 }
 

@@ -11,5 +11,6 @@ namespace WindyFramework.Event
         PLAYER_LEVEL_CHANGE,
         PLAYER_EQUIP_CHANGE,
         MOUSE_LEFT_BUTTON_CLICKED,
+        STAGE_UNLOCKED,
     }
 }
